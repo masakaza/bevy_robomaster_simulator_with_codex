@@ -1,0 +1,2 @@
+# bevy_robomaster_simulator_with_codex
+使用了codex来对原项目文件进行一些兼容性修改
