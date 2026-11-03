@@ -12,6 +12,22 @@
 
 </div>
 
+---
+
+## 📝 项目信息
+本项目对原项目的一些代码进行了修改，从而增强程序的在不同环境中的适应性
+
+在此**由衷感谢河北科技大学 Actor&Thinker 战队 对项目的开源**
+
+* **原项目仓库**：[Blackjack200/bevy_robomaster_simulator](https://github.com/Blackjack200/bevy_robomaster_simulator)
+* **作者**：Blackjack200
+* **团队**：Actor&Thinker 战队
+* **技术栈**：Rust · Bevy · ROS2(r2r) · Talos IPC
+* **交流方式**：GitHub Issues / Pull Requests
+* **开源协议**：AGPL v3
+
+---
+
 ## 🚀 功能亮点
 
 * 🎯 **全要素战场环境仿真**
@@ -178,19 +194,6 @@
 * **F2**：截图
 * **F4**：调试信息开关
 * **F5**：自瞄订阅开关
-
----
-
-## 📝 项目信息
-
-* **原项目仓库**：[Blackjack200/bevy_robomaster_simulator](https://github.com/Blackjack200/bevy_robomaster_simulator)
-* **作者**：Blackjack200
-* **团队**：Actor&Thinker 战队
-* **技术栈**：Rust · Bevy · ROS2(r2r) · Talos IPC
-* **交流方式**：GitHub Issues / Pull Requests
-* **开源协议**：AGPL v3
-
----
 
 ## 🌄 演示
 
