@@ -90,13 +90,14 @@ fn fixed_time_from_config(config: &SimulationConfig) -> Time<Fixed> {
 }
 
 fn project_root_from(path: &std::path::Path) -> Option<std::path::PathBuf> {
-    path.ancestors().find(|candidate| {
-        candidate.join("config.toml").is_file() && candidate.join("assets").is_dir()
-    })
+    path.ancestors()
+        .find(|candidate| {
+            candidate.join("config.toml").is_file() && candidate.join("assets").is_dir()
+        })
         .map(std::path::Path::to_path_buf)
 }
 
-fn set_project_working_directory() {
+fn set_project_working_directory() -> std::path::PathBuf {
     let executable_root = std::env::current_exe()
         .ok()
         .and_then(|path| project_root_from(&path));
@@ -111,6 +112,7 @@ fn set_project_working_directory() {
         eprintln!("failed to switch to project directory {project_root:?}: {error}");
         std::process::exit(1);
     }
+    project_root
 }
 
 #[cfg(feature = "talos")]
@@ -130,7 +132,7 @@ fn should_enable_talos_plugin(_app: &App) -> bool {
 }
 
 fn main() {
-    set_project_working_directory();
+    let project_root = set_project_working_directory();
     let config = SimulationConfig::default();
     let present_mode = present_mode_from_config(&config.window.present_mode).unwrap_or_else(|| {
         warn!(
@@ -151,7 +153,7 @@ fn main() {
                 ..default()
             })
             .set(AssetPlugin {
-                file_path: "assets".to_string(),
+                file_path: project_root.join("assets").to_string_lossy().into_owned(),
                 ..default()
             })
             .set(render_plugin_for_platform()),
